@@ -15,8 +15,8 @@ RUN rm -rf /tomcat/webapps/ROOT*
 
 VOLUME ["/data"]
 
-ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
-ADD run.sh /run.sh
+ADD ../common/create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
+ADD ../common/run.sh /run.sh
 RUN chmod +x /*.sh
 
 # Build and install PSI probe
