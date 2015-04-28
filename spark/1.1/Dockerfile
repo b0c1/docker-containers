@@ -9,9 +9,9 @@ ENV SPARK_DOWNLOAD_NAME spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION
 RUN curl -s http://xenia.sote.hu/ftp/mirrors/www.apache.org/spark/spark-$SPARK_VERSION/$SPARK_DOWNLOAD_NAME.tgz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s $SPARK_DOWNLOAD_NAME spark
 RUN mkdir /usr/local/spark/yarn-remote-client
-ADD ../common/yarn-remote-client /usr/local/spark/yarn-remote-client
-ADD ../common/hostfix.sh /etc/hostfix.sh
-ADD ../common/spark-bootstrap.sh /etc/spark-bootstrap.sh
+ADD yarn-remote-client /usr/local/spark/yarn-remote-client
+ADD hostfix.sh /etc/hostfix.sh
+ADD spark-bootstrap.sh /etc/spark-bootstrap.sh
 RUN chmod ug=rwx /etc/spark-bootstrap.sh
 RUN chmod ug=rwx /etc/hostfix.sh
 RUN /etc/hostfix.sh
