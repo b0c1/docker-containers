@@ -21,7 +21,7 @@ RUN chmod +x /*.sh
 
 # Build and install PSI probe
 
-RUN cd /tmp; git clone https://github.com/psi-probe/psi-probe; mvn package; mv web/target/probe.war /tomcat/webapps/probe.war
+RUN cd /tmp; git clone https://github.com/psi-probe/psi-probe;cd psi-probe; mvn package; mv web/target/probe.war /tomcat/webapps/probe.war
 
 EXPOSE 8080
 

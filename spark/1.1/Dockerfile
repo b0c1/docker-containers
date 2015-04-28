@@ -13,8 +13,8 @@ ADD yarn-remote-client /usr/local/spark/yarn-remote-client
 ADD hostfix.sh /etc/hostfix.sh
 ADD spark-bootstrap.sh /etc/spark-bootstrap.sh
 RUN chmod ug=rwx /etc/spark-bootstrap.sh
-RUN chmod ug=rwx /etc/hostfix.sh
-RUN /etc/hostfix.sh
+RUN chmod ug=rwX /etc/hostfix.sh
+RUN /bin/bash /etc/hostfix.sh
 
 RUN $BOOTSTRAP && $HADOOP_PREFIX/bin/hadoop dfsadmin -safemode leave && $HADOOP_PREFIX/bin/hdfs dfs -put /usr/local/$SPARK_DOWNLOAD_NAME/lib /spark
 

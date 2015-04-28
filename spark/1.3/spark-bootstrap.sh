@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Start hadoop bootstrap..."
+/etc/hostfix.sh
 echo $1
 /etc/bootstrap.sh
 
