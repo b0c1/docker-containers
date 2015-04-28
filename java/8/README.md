@@ -1,0 +1,1 @@
+Oracle Java 8 docker images based on ubuntu
