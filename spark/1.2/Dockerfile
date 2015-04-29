@@ -6,7 +6,8 @@ ENV HADOOP_VERSION 2.6
 ENV SPARK_ASSEMBLY_JAR spark-assembly-$SPARK_VERSION-hadoop$HADOOP_VERSION.0.jar
 ENV SPARK_DOWNLOAD_NAME spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION
 
-RUN curl -s http://xenia.sote.hu/ftp/mirrors/www.apache.org/spark/spark-$SPARK_VERSION/$SPARK_DOWNLOAD_NAME.tgz | tar -xz -C /usr/local/
+RUN apt-get install -y curl tar gzip
+RUN curl -s http://www.us.apache.org/dist/spark/spark-$SPARK_VERSION/$SPARK_DOWNLOAD_NAME.tgz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s $SPARK_DOWNLOAD_NAME spark
 RUN mkdir /usr/local/spark/yarn-remote-client
 ADD yarn-remote-client /usr/local/spark/yarn-remote-client
@@ -14,7 +15,7 @@ ADD hostfix.sh /etc/hostfix.sh
 ADD spark-bootstrap.sh /etc/spark-bootstrap.sh
 RUN chmod ug=rwx /etc/spark-bootstrap.sh
 RUN chmod ug=rwx /etc/hostfix.sh
-RUN /etc/hostfix.sh
+RUN /bin/bash /etc/hostfix.sh
 
 RUN $BOOTSTRAP && $HADOOP_PREFIX/bin/hadoop dfsadmin -safemode leave && $HADOOP_PREFIX/bin/hdfs dfs -put /usr/local/$SPARK_DOWNLOAD_NAME/lib /spark
 
