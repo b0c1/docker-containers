@@ -2,7 +2,7 @@ FROM sequenceiq/hadoop-ubuntu:2.6.0
 MAINTAINER Janos Haber <janos.haber@finesolution.hu>
 
 ENV SPARK_VERSION 1.2.2
-ENV HADOOP_VERSION 2.6
+ENV HADOOP_VERSION 2.4
 ENV SPARK_ASSEMBLY_JAR spark-assembly-$SPARK_VERSION-hadoop$HADOOP_VERSION.0.jar
 ENV SPARK_DOWNLOAD_NAME spark-$SPARK_VERSION-bin-hadoop$HADOOP_VERSION
 
