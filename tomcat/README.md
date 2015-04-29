@@ -1,4 +1,4 @@
-Tomcat 8 docker file based on b0c1/java:latest image.
+Tomcat 8 docker file based on b0c1/java:latest image with psi-probe.
 
 Exposed port ```8080```
 
