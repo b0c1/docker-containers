@@ -3,6 +3,9 @@ Apache Spark 1.3.1 on Docker
 The repository based on [sequenceiq/hadoop-docker image](https://registry.hub.docker.com/u/sequenceiq/hadoop-docker/)
 Current hadoop version 2.6.0
 
+If you run the /etc/spark-bootstrap.sh with -d option (default CMD) it will check the /data/deploy.sh script and try to start.
+If you using -bash option, you will get shell.
+
 ## Testing
 
 You can run one of the stock examples:
