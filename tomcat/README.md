@@ -5,3 +5,5 @@ Exposed port ```8080```
 You can change the administrator password with ```TOMCAT_PASS``` environment variable.
 
 The image mount /data directory, and try to run the config.sh in this mounted directory.
+
+Added native library

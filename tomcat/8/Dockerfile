@@ -9,6 +9,7 @@ ENV TOMCAT_VERSION 8.0.22
 ENV CATALINA_HOME /tomcat
 
 # INSTALL TOMCAT
+RUN apt-get install --quiet --yes --no-install-recommends libtcnative-1 xmlstarlet
 RUN wget http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAIN_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O tomcat.tar.gz
 RUN tar zxf tomcat.tar.gz && rm tomcat.tar.gz && mv apache-tomcat* /tomcat
 RUN rm -rf /tomcat/webapps/ROOT*
