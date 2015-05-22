@@ -3,6 +3,7 @@ MAINTAINER Janos Haber <janos.haber@finesolution.hu>
 
 # Install Oracle Java 8
 ENV JAVA_VER 8
+ENV JAVA_VERSION 8u45
 
 RUN apt-get update && \
     apt-get upgrade -y && \

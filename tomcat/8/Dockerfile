@@ -5,7 +5,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget pwgen unzip maven git
 
 ENV TOMCAT_MAIN_VERSION 8
-ENV TOMCAT_VERSION 8.0.21
+ENV TOMCAT_VERSION 8.0.22
 ENV CATALINA_HOME /tomcat
 
 # INSTALL TOMCAT
