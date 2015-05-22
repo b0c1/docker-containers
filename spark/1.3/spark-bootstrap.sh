@@ -13,7 +13,7 @@ if [[ $1 == "-d" ]]; then
         chmod 770 /data/deploy.sh
         /data/deploy.sh
 	else
-		echo "Deploy script not found in data:"
+		echo "Deploy script (/data/deploy.sh) not found... /data content:"
 		ls -la /data
     fi
     while true; do sleep 1000; done
