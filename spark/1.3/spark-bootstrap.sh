@@ -11,7 +11,7 @@ if [[ $1 == "-d" ]]; then
         echo "We have deploy script! Start it!"
         chown root:root /data/deploy.sh
         chmod 770 /data/deploy.sh
-        /data/deploy.sh
+        /bin/bash /data/deploy.sh
 	else
 		echo "Deploy script (/data/deploy.sh) not found... /data content:"
 		ls -la /data
