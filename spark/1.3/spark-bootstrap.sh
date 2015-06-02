@@ -3,7 +3,11 @@
 echo "Start hadoop bootstrap..."
 /etc/hostfix.sh
 echo $1
-/etc/bootstrap.sh
+if [ "$SKIP_HADOOP" == "true" ]; then
+    echo "HADOOP bootstrap skipped"
+else
+    /etc/bootstrap.sh
+fi
 
 if [[ $1 == "-d" ]]; then
     echo "Check deploy script"
@@ -16,7 +20,6 @@ if [[ $1 == "-d" ]]; then
 		echo "Deploy script (/data/deploy.sh) not found... /data content:"
 		ls -la /data
     fi
-    while true; do sleep 1000; done
 fi
 
 if [[ $1 == "-bash" ]]; then

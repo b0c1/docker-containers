@@ -6,6 +6,8 @@ Current hadoop version 2.6.0
 If you run the /etc/spark-bootstrap.sh with -d option (default CMD) it will check the /data/deploy.sh script and try to start.
 If you using -bash option, you will get shell.
 
+SKIP_HADOOP=true environment variable will skip the Hadoop start (for local mode) 
+
 ## Testing
 
 You can run one of the stock examples:
