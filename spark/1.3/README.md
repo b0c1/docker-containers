@@ -1,42 +1,22 @@
 Apache Spark 1.3.1 on Docker
 ==========
-The repository based on [sequenceiq/hadoop-docker image](https://registry.hub.docker.com/u/sequenceiq/hadoop-docker/)
-Current hadoop version 2.6.0
+The repository based on [sequenceiq/hadoop-ubuntu:2.6.0 image](https://registry.hub.docker.com/u/sequenceiq/hadoop-ubuntu/)
+Current hadoop ubuntu version 2.6.0
+
+Can start Hadoop or Spark cluster
+
+environment variable ```SPARK_MODE```:
+```spark```     - run spark master and worker
+```none```      - doesn't  run spark or hadoop
+```default```   - start hadoop cluster
+
+Spark Mode opened ports:
+```
+SPARK_WORKER_PORT=8082
+SPARK_WORKER_WEBUI_PORT=8081
+SPARK_MASTER_PORT=7077
+SPARK_MASTER_WEBUI_PORT=8080
+```
 
 If you run the /etc/spark-bootstrap.sh with -d option (default CMD) it will check the /data/deploy.sh script and try to start.
 If you using -bash option, you will get shell.
-
-SKIP_HADOOP=true environment variable will skip the Hadoop start (for local mode) 
-
-## Testing
-
-You can run one of the stock examples:
-
-```
-cd /usr/local/spark
-# run the spark shell
-./bin/spark-shell --master yarn-client --driver-memory 1g --executor-memory 1g --executor-cores 1
-
-# execute the the following command which should return 1000
-scala> sc.parallelize(1 to 1000).count()
-```
-
-There are two deploy modes that can be used to launch Spark applications on YARN. In yarn-cluster mode, the Spark driver runs inside an application master process which is managed by YARN on the cluster, and the client can go away after initiating the application. In yarn-client mode, the driver runs in the client process, and the application master is only used for requesting resources from YARN.
-
-Estimating Pi (yarn-cluster mode): 
-
-```
-cd /usr/local/spark
-
-# execute the the following command which should write the "Pi is roughly 3.1418" into the logs
-./bin/spark-submit --class org.apache.spark.examples.SparkPi --master yarn-cluster --driver-memory 1g --executor-memory 1g --executor-cores 1 examples/target/scala-2.10/spark-examples_2.10-1.0.1.jar
-```
-
-Estimating Pi (yarn-client mode):
-
-```
-cd /usr/local/spark
-
-# execute the the following command which should print the "Pi is roughly 3.1418" to the screen
-./bin/spark-submit --class org.apache.spark.examples.SparkPi --master yarn-client --driver-memory 1g --executor-memory 1g --executor-cores 1 examples/target/scala-2.10/spark-examples_2.10-1.0.1.jar
-```

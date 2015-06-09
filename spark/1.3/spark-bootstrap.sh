@@ -3,11 +3,18 @@
 echo "Start hadoop bootstrap..."
 /etc/hostfix.sh
 echo $1
-if [ "$SKIP_HADOOP" == "true" ]; then
-    echo "HADOOP bootstrap skipped"
-else
-    /etc/bootstrap.sh
-fi
+
+case "$SPARK_MODE" in
+    spark) echo "Start Spark Cluster"
+          /usr/local/spark/bin/start-all.sh
+          ;;
+    none)
+         echo "Do not start HADOOP or Spark Cluster"
+         ;;
+    *) echo "Start HADOOP"
+       /etc/bootstrap.sh
+       ;;
+esac
 
 if [[ $1 == "-d" ]]; then
     echo "Check deploy script"
