@@ -6,7 +6,7 @@ echo $1
 
 case "$SPARK_MODE" in
     spark) echo "Start Spark Cluster"
-          /usr/local/spark/bin/start-all.sh
+          /usr/local/spark/sbin/start-all.sh
           ;;
     none)
          echo "Do not start HADOOP or Spark Cluster"
