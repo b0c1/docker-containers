@@ -1,4 +1,4 @@
-Apache Spark 1.3.1 on Docker
+Apache Spark 1.4.1 on Docker
 ==========
 The repository based on [sequenceiq/hadoop-ubuntu:2.6.0 image](https://registry.hub.docker.com/u/sequenceiq/hadoop-ubuntu/)
 Current hadoop ubuntu version 2.6.0
